@@ -20,12 +20,6 @@ public class ChatLogin {
         }
     }
 
-    public static void main(String[] args) {
-        ChatLogin login = new ChatLogin();
-        boolean exist = login.userExist("test");
-        System.out.println(exist);
-    }
-
     public boolean userExist(String username) {
         PreparedStatement request = null;
         ResultSet response = null;
