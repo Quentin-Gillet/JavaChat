@@ -1,4 +1,4 @@
-package fr.quentingillet.client.utils;
+package fr.quentingillet.utils;
 
 import javafx.scene.control.Alert;
 import javafx.stage.Window;

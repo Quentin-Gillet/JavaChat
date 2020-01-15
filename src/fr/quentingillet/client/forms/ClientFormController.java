@@ -1,7 +1,7 @@
 package fr.quentingillet.client.forms;
 
 import fr.quentingillet.client.ChatClient;
-import fr.quentingillet.client.utils.AlertHelper;
+import fr.quentingillet.utils.AlertHelper;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
