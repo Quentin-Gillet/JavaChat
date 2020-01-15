@@ -9,6 +9,10 @@ import java.security.spec.InvalidKeySpecException;
 
 public class PasswordHash {
 
+    public static void main(String[] args) {
+        System.out.println(PasswordHash.generateStrongPasswordHash("1234"));
+    }
+
     public static String generateStrongPasswordHash(String password)
     {
         int iterations = 1000;

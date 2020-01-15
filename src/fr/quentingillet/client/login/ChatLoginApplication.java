@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ChatLoginApplication extends Application {
+    private ChatLogin chatLogin;
+    private Stage mainStage;
+
     public ChatLoginApplication(){
 
     }
@@ -24,15 +27,22 @@ public class ChatLoginApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        this.mainStage = primaryStage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("forms/LoginForm.fxml"));
-        //ChatLogin login = new ChatLogin();
-        LoginFormController controller = new LoginFormController();
+        chatLogin = new ChatLogin();
+        LoginFormController controller = new LoginFormController(this, chatLogin);
         loader.setController(controller);
         Parent root = loader.load();
         Scene scene = new Scene(root, 355, 410);
-        primaryStage.setTitle("Chat Login");
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        primaryStage.show();
+        mainStage.setTitle("Chat Login");
+        mainStage.setScene(scene);
+        mainStage.setResizable(false);
+        mainStage.show();
     }
+
+    public void changeStage(Stage stage){
+        mainStage.close();
+        stage.show();
+    }
+
 }

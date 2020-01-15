@@ -7,45 +7,41 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ChatClientApplication extends Application {
+public class ChatClientApplication {
     private ArrayList<Thread> threads;
+    private String[] userInformations;
 
-    public ChatClientApplication(){
-
+    public ChatClientApplication(String[] userInformations){
+        this.userInformations = userInformations;
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void stop() throws Exception {
-        super.stop();
-        for (Thread thread: threads){
-            thread.interrupt();
-        }
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    public Stage startChatApplication() {
         threads = new ArrayList<Thread>();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("forms/ClientForm.fxml"));
-        ChatClient client = new ChatClient("localhost", 8585, Integer.toString(new Random().nextInt()));
+        ChatClient client = new ChatClient("localhost", 8585, userInformations[1]);
         Thread clientThread = new Thread(client);
         clientThread.setDaemon(true);
         clientThread.start();
         threads.add(clientThread);
         ClientFormController controller = new ClientFormController(client);
         loader.setController(controller);
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert root != null;
         Scene scene = new Scene(root, 640, 400);
+        Stage primaryStage = new Stage();
         primaryStage.setTitle("JavaChat");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.show();
         controller.updateListView();
+        return primaryStage;
     }
 }
