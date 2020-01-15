@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextField fx:id="inputMessage" layoutX="15.0" layoutY="338.0" prefHeight="39.0" prefWidth="464.0" promptText="Votre message" />
+            <Button fx:id="sendButton" layoutX="505.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleSendButtonAction" prefHeight="39.0" prefWidth="119.0" text="Send">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <ListView layoutX="15.0" layoutY="17.0" prefHeight="304.0" prefWidth="611.0" fx:id="chatListView"/>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

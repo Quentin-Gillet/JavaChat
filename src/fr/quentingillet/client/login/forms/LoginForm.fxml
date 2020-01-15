@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="410.0" prefWidth="355.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="0.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="119.0" layoutY="74.0" prefHeight="50.0" prefWidth="120.0" text="Login" textAlignment="CENTER">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Button layoutX="77.0" layoutY="337.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="201.0" text="Button" />
+            <TextField layoutX="79.0" layoutY="179.0" prefHeight="26.0" prefWidth="201.0" promptText="Username">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+            <TextField layoutX="79.0" layoutY="244.0" prefHeight="26.0" prefWidth="201.0" promptText="Password">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
