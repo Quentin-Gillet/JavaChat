@@ -9,10 +9,6 @@ import java.util.Arrays;
 public class ChatLogin {
     private Connection connection;
 
-    public static void main(String[] args) {
-
-    }
-
     public ChatLogin(){
         this.connection = new SqlLiteDatabaseController().getConnection();
     }
@@ -54,7 +50,7 @@ public class ChatLogin {
                     userInformations[0] = String.valueOf(response.getInt("id"));
                     userInformations[1] = response.getString("username");
                     userPassword = response.getString("password");
-                    userInformations[2] = String.valueOf(response.getDate("member_since"));
+                    userInformations[2] = response.getString("member_since");
                 }
                 assert userPassword != null;
                 if (PasswordHash.validatePassword(password, userPassword)) {
